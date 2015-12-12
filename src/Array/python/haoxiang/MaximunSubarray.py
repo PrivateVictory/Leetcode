@@ -20,4 +20,5 @@ class Solution(object):
         return maxSum
 Test = Solution()
 test = [1, -2, 3, 10, -4, 7, 2, -5]
-print Test.maxSubArray(test)
+test2 = [2,3,-4,-6,9,3]
+print Test.maxSubArray(test2)

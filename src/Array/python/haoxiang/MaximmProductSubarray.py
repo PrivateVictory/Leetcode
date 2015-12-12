@@ -9,10 +9,12 @@ class Solution(object):
             if nums[i] > 0:
                 maxSum = max(nums[i],maxSum*nums[i])
                 minSum = min(nums[i],minSum*nums[i])
+                print "maxSum:"+str(maxSum)
             else:
                 tmplast = maxSum
                 maxSum = max(minSum*nums[i],nums[i])
                 minSum = min(tmplast*nums[i],nums[i])
+                print "maxSum:"+str(maxSum)
             res = max(res,maxSum)
         return res
 Test = Solution()
