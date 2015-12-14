@@ -40,7 +40,7 @@ class Solution(object):
                 else:
                     grid[i][j] += min(grid[i-1][j],grid[i][j-1])
         return grid[row-1][line-1]
-
+        
     # def minPathSum(self,grid):
     #     row = len(grid)
     #     line = len(grid[0])
