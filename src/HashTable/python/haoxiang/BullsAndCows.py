@@ -21,9 +21,6 @@ class Solution(object):
                         aNum+=1
                         sec[guess[k]].remove(k)
                         guess[k] = "#"
-                    # else:
-                    #     bNum+=1
-                    #     # sec[guess[k]].pop()
         for j in range(len(guess)):
             if sec.has_key(guess[j]):
                 if len(sec[guess[j]])>0:
