@@ -32,6 +32,7 @@ class Solution(object):
         elif index==self.step-1:
             return True
         else:
+            
             temp=board[i][j]
             board[i][j]=0
             if self.findNext(i,j+1,board,word,index+1):
