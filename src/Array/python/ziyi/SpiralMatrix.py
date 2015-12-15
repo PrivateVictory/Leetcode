@@ -14,59 +14,49 @@ class Solution(object):
         :type matrix: List[List[int]]
         :rtype: List[int]
         """
-        self.matrix = matrix
-        if matrix == []:
+        if len(matrix) == 0:
             return []
-        else:
-            m, n = len(matrix), len(matrix[0])
-        self.step_count = 0
+        self.matrix = matrix
+        self.m, self.n = len(matrix), len(matrix[0])
         self.result = []
-        #positions
-        self.cur_pos = [0,-1]
-        #directions
-        self.UP, self.DOWN, self.LEFT, self.RIGHT = 1, 2, 3, 4
-        self.cur_direction = self.RIGHT
-        #sides
-        self.up_side, self.down_side, self.left_side, self.right_side = -1, m, -1, n
-        #stop loop when pass m*n steps 
-        while not self.step_count == m * n:
-            #a loop
-            self.move()
+
+        self.step_count = 0
+        self.position = [0,-1]
+        self.direction = 'r'
+        self.up_side, self.down_side, self.left_side, self.right_side = -1, self.m, -1, self.n
+        while self.step_count < self.m * self.n:
+            self.move_and_step()
             self.update_direction()
         return self.result
-    #move method             
-    def move(self):
-        if self.cur_direction == self.RIGHT:
-            self.cur_pos[1] += 1
-        elif self.cur_direction == self.DOWN:
-            self.cur_pos[0] += 1
-        elif self.cur_direction == self.LEFT:
-            self.cur_pos[1] -= 1
-        elif self.cur_direction == self.UP:
-            self.cur_pos[0] -= 1
+    
+    def move_and_step(self):
+        #move
+        if self.direction == 'r':
+            self.position[1] += 1
+        elif self.direction == 'd':
+            self.position[0] += 1
+        elif self.direction == 'l':
+            self.position[1] -= 1
+        elif self.direction == 'u':
+            self.position[0] -= 1
+        #step
+        self.result.append(self.matrix[self.position[0]][self.position[1]])
         self.step_count += 1
-        self.result.append(self.matrix[self.cur_pos[0]][self.cur_pos[1]])
-    #judge if change direction
+
+    # change direction and side at conners
     def update_direction(self):
-        if (self.cur_direction == self.RIGHT and self.cur_pos[1] == self.right_side - 1) or\
-            (self.cur_direction == self.DOWN and self.cur_pos[0] == self.down_side - 1) or\
-            (self.cur_direction == self.LEFT and self.cur_pos[1] == self.left_side + 1) or\
-            (self.cur_direction == self.UP and self.cur_pos[0] == self.up_side + 1) :
-            self.turnRight()
-    #turn right method
-    def turnRight(self):
-        if self.cur_direction == self.UP:
-            self.cur_direction = self.RIGHT
-            self.left_side += 1
-        elif self.cur_direction == self.RIGHT:
-            self.cur_direction = self.DOWN
+        if self.direction == 'r' and self.position[1] == self.right_side - 1:
+            self.direction = 'd'
             self.up_side += 1
-        elif self.cur_direction == self.DOWN:
-            self.cur_direction = self.LEFT
+        elif self.direction == 'd' and self.position[0] == self.down_side - 1:
+            self.direction = 'l'
             self.right_side -= 1
-        elif self.cur_direction == self.LEFT:
-            self.cur_direction = self.UP
+        elif self.direction == 'l' and self.position[1] == self.left_side + 1:
+            self.direction = 'u'
             self.down_side -= 1
+        elif self.direction == 'u' and self.position[0] == self.up_side + 1:
+            self.direction = 'r'
+            self.left_side += 1
         
 def main():
     s = Solution()
