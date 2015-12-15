@@ -1,3 +1,4 @@
+// Solution 1
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
@@ -32,5 +33,25 @@ public:
         else if (v[mid] > target)
             return bi_search(v, i, mid-1, target);
         // return 1 found, -1 less, 2 biger, 0 not found
+    }
+};
+
+// Solution 2
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        if (matrix.empty()) return false;
+        int start=0, end=matrix.size() * matrix[0].size() -1;
+        
+        while (start <= end) {
+            int mid=(start+end)/2, x=mid/matrix[0].size(), y=mid%matrix[0].size();
+            if (matrix[x][y] == target)
+                return true;
+            else if (matrix[x][y] > target)
+                end = mid-1;
+            else
+                start = mid+1;
+        }
+        return false;
     }
 };
