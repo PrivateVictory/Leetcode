@@ -14,4 +14,3 @@ class Solution(object):
                 res = max(res, l-i)
                 break
         return res
-         
