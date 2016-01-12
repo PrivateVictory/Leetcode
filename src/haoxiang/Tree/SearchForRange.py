@@ -10,7 +10,7 @@ class Solution(object):
         res = [-1, -1]
 
         while pos <= lens:
-            start = end = (pos+lens)/2
+            start = end = (pos+lens)//2
             if nums[start] > target:
                 lens = start-1
             elif nums[start] < target:
