@@ -1,7 +1,9 @@
 package haoxiang.SegementTree;
 
-import javax.naming.directory.SearchResult;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by haoxiang on 16/2/6.
