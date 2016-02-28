@@ -1,7 +1,5 @@
 package haoxiang.Array;
 
-import java.util.HashMap;
-
 /**
  * Created by haoxiang on 16/2/22.
  */
@@ -15,7 +13,6 @@ public class ExcelSheetColumnNumber {
             res += n * Math.pow(26, step);
             step++;
         }
-
         return res;
 
     }
