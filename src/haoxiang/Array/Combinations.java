@@ -21,6 +21,7 @@ public class Combinations {
         if (cur.size() > k) {
             return;
         }
+//        Math.pow(1,2);
         for(int i = step;i<=n;i++){
             cur.add(i);
             DFS(cur,n,k,res,i+1);
