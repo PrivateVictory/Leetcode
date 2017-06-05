@@ -17,6 +17,7 @@ https://www.quora.com/How-do-I-prepare-for-a-software-engineering-job-interview
 https://dzone.com/articles/top-7-tips-succeeding 
 http://blog.interviewing.io/ (interesting/good to know background and perspective on the hiring process)
 http://blog.gainlo.co/index.php/category/google-interview-preparation/ 
+http://www.mohsinali.net/guide.html widely recommended on the internet, how to land a tech gig
 
 Quora threads:
 https://www.quora.com/What-topics-are-covered-in-the-Google-phone-interview 
